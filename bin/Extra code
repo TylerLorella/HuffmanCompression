@@ -1,0 +1,154 @@
+			public String getWordCode(final String toFind) {
+			//this might be the issue, having to traverse the tree a buuuunch.
+			if (this.word == null) {
+				if (this.left != null) {
+					String temp = this.left.getWordCode(toFind);
+					if (temp != null) return "0" + temp;
+				}
+				
+				if (this.right != null) {
+					String temp = this.right.getWordCode(toFind);
+					if (temp != null) return "1" + temp;
+				}
+			} else if (this.word.equals(toFind)) return "";
+			
+			return null;
+
+//			if (this.word.equals(toFind)) {
+//				return "";
+//			} else {
+//
+//				if (this.left != null) {
+//					String temp = left.getWordCode(toFind);
+//					if (temp != null) {
+//						return "0" + temp;
+//					}
+//				}
+//
+//				if (this.right != null) {
+//					String temp = right.getWordCode(toFind);
+//					if (temp != null) {
+//						return "1" + temp;
+//					}
+//				}
+//
+//			}
+//			return null;
+		}	
+		
+		//		for (int index = 0; index < message.length(); index++) {
+		//			frequencyMap.put(message.charAt(index), frequencyMap.getOrDefault(message.charAt(index), 0) + 1);
+		//		}
+
+		//O(m^2)
+		//		for (char key: frequencyMap.keySet()) {
+		//			codes.put(key, tree.getCharCode(key));
+		//		}
+		
+//		for (String key: frequencyMap.keySet()) {
+//
+//			//TODO debug
+//			//System.out.println("Looking for: " + key);
+//
+//			codes.put(key, tree.getWordCode(key));
+//		}
+
+//for (char key: frequencyMap.keySet()) { //O(m) - m is number of unique characters in text
+
+
+//		boolean first = false;
+//		Element firstChild = null;
+//		boolean second = false;
+//		Element secondChild = null;
+
+//			if (first == false && frequencyMap.get(key) == 1) {
+//				first = true;
+//				firstChild = new Element(key, frequencyMap.get(key));
+//			} else if (second == false && frequencyMap.get(key) == 1) {
+//				second = true;
+//				secondChild = new Element(key, frequencyMap.get(key));
+//			} else {
+//				Element temp = new Element()
+//				minHeap.add(new Element(key, frequencyMap.get(key)));
+//				nodeList.add(e)
+//			}
+//			if (first == true && second == true) {
+//				minHeap.add(new Element((firstChild.weight + secondChild.weight), firstChild, secondChild));
+//				first = false;
+//				second = false;
+//			}
+
+
+
+
+					DEBUG	
+//		//TODO debug
+//		endTime = System.nanoTime();
+//		System.out.println("Counter value: " + counter);
+//		System.out.println("MinHeap condense finished: " + (endTime - startTime) / 1_000_000);
+//		startTime = System.nanoTime();
+//		System.out.println("building code map"); //seems like encoding is pretty quick
+
+		//TODO debug
+		endTime = System.nanoTime();
+		System.out.println("code tree built: " + (endTime - startTime) / 1_000_000);
+		startTime = System.nanoTime();
+		System.out.println("encoding start"); //seems like encoding is pretty quick
+		
+				//		for (int index = 0; index < message.length(); index++) {
+		//			encodedString.append(codes.get(message.charAt(index)));
+		//		}
+		//need to modify this so it repeats the freq map by reading words from the message
+		
+				//TODO; debug
+		endTime = System.nanoTime();
+		System.out.println("encoding complete: " + (endTime - startTime) / 1_000_000);
+		
+				//TODO debug
+		endTime = System.nanoTime();
+		System.out.println("minHeap built: " + (endTime - startTime) / 1_000_000 + " Entries: " + minHeap.size());
+		int occurence = 0;
+		for (String word: frequencyMap.keySet()) {
+			if (frequencyMap.get(word).equals(1)) occurence++;
+		}
+		System.out.println("freq Map stats: Number of entries with 1 occurence: " + occurence);
+		startTime = System.nanoTime();
+		System.out.println("minHeap condense");
+		
+				//TODO debug
+		long endTime = System.nanoTime();
+		System.out.println("freq built: " + (endTime - startTime) / 1_000_000);
+		startTime = System.nanoTime();
+		System.out.println("minHeap building");
+		
+				//TODO debug
+		long startTime = System.nanoTime();
+		System.out.println("Freq building");
+		
+		
+		
+		
+						MAIN
+						
+		//TODO debug
+		System.out.println("\nSize of freq Tree: " + encode.frequencyMap.size());
+		//the current issue seems to be that the freq tree is claiming that size == capacity, however I have found null entries
+		//meaning that there certainly is still room. Fixed this issue, next issue
+		//TODO solve issues
+		//my freq map is smaller by 1 entry compared to the solution
+		//my file is ~ 50-100 KBs larger then solution file.
+		//encode runtime is over 10 seconds
+		//TODO possible solutions or hints
+		//finish the stats method, check to see how many collisions happen - perhaps a better hash method could be devised, this would only improve freq build and encoding.
+		//would it be possible to combine elements of value 1 (minium) prior to offering to minHeap? -shaved about 2 seconds, not enough
+		//maybe something is slightly off with my HashMap implementation?
+		//minHeap removeMin, worst case should be O(n log n), the time between building minHeap and 
+			//condensing it are crazy.
+		//FIND AN ALTERNATIVE TO MINHEAP
+		
+		
+		
+		
+		
+		
+		
